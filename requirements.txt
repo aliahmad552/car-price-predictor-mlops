@@ -7,4 +7,5 @@ python-dotenv
 seaborn
 mysql-connector-python
 pymysql
--e .
+xgboost
+# -e .
