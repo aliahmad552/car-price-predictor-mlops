@@ -142,6 +142,9 @@ env/
 myenv
 ENV/
 env.bak/
+log/
+logs/
+logs
 venv.bak/
 
 # Spyder project settings
@@ -164,6 +167,9 @@ dmypy.json
 
 # pytype static type analyzer
 .pytype/
+artifacts/train.csv
+artifacts/test.csv
+notebook/data/data.csv
 
 # Cython debug symbols
 cython_debug/
@@ -205,3 +211,4 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+.env
