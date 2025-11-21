@@ -21,6 +21,8 @@ list_of_files = [
     f"src/{project_name}/utils.py",
     "app.py",
     "Dockerfile",
+    "requirements.txt",
+    "Readme.md"
 ]
 for filepath in list_of_files:
     filepath = Path(filepath)
