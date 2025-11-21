@@ -8,5 +8,6 @@ seaborn
 mysql-connector-python
 pymysql
 xgboost
-# -e .
 mlflow
+dagshub
+# -e .
