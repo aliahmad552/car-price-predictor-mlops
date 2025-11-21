@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/AI_ML_Projects/MLOps-project/mlruns/0/f6649e36566b4fd29bd596b8ccacf699/artifacts
+end_time: 1763721102424
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f6649e36566b4fd29bd596b8ccacf699
+run_name: luxuriant-jay-746
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763721094007
+status: 3
+tags: []
+user_id: root
