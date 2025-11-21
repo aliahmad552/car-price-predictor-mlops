@@ -25,7 +25,7 @@ class DataTransformation:
         try:
             logging.info("Data Transformation initiated")
             categorical_columns = ['name','company','fuel_type']
-            numerical_columns = ['year','kms_driven']
+            numerical_columns = ['age','kms_driven']
 
             num_pipeline = Pipeline(
                 steps=[
@@ -59,6 +59,7 @@ class DataTransformation:
 
             train_path = pd.read_csv(train_path)
             test_path = pd.read_csv(test_path)
+            
 
             print(train_path.shape[0])
             print(test_path.shape[0])
@@ -68,6 +69,13 @@ class DataTransformation:
             preprocessing_obj = self.get_data_transformer_object()
 
             target_column_name = 'Price'
+
+            # Feature engineering
+            train_path["age"] = 2025 - train_path["year"]
+            test_path["age"] = 2025 - test_path["year"]
+
+            train_path.drop(columns=["year"], inplace=True)
+            test_path.drop(columns=["year"], inplace=True)
 
             input_feature_train_df = train_path.drop(columns=[target_column_name], axis=1)
             target_feature_train_df = train_path[target_column_name]
