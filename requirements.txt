@@ -9,3 +9,4 @@ mysql-connector-python
 pymysql
 xgboost
 # -e .
+mlflow
