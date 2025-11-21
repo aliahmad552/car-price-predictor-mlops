@@ -1,6 +1,28 @@
-# Everything Is on the target
+# Car Price Prediction Project 🚗
+## Table of Contents
 
-DAGSHUB_MLFLOW_TRACKING_URI='https://dagshub.com/aliahmad552/car-price-predictor-mlops.mlflow'
+1. Project Overview
 
-DAGSHUB_MLFLOW_TRACKING_USERNAME='aliahmad552'
-DAGSHUB_MLFLOW_TRACKING_PASSWORD='738cd055a1ed8cfe2b2ff2eaddea249c2471b62a'
+2. Tech Stack
+
+3. Architecture & Workflow
+
+4. Data Ingestion
+
+5. Data Transformation
+
+6. Model Training & Evaluation
+
+7. Prediction Pipeline
+
+8. FastAPI Deployment
+
+9. MLflow & DagsHub Integration
+
+10. Dockerization
+
+11. CI/CD Pipeline
+
+12. Project Structure
+
+13. References
