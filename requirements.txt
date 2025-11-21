@@ -8,6 +8,9 @@ seaborn
 mysql-connector-python
 pymysql
 xgboost
-mlflow
+mlflow==2.9.2
 dagshub
+dill
+fastapi
+uvicorn
 # -e .
