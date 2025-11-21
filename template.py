@@ -22,7 +22,8 @@ list_of_files = [
     "app.py",
     "Dockerfile",
     "requirements.txt",
-    "Readme.md"
+    "Readme.md",
+    "main.py"
 ]
 for filepath in list_of_files:
     filepath = Path(filepath)
