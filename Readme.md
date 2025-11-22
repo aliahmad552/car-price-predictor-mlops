@@ -73,3 +73,84 @@ flowchart TD
     I --> J[CI/CD Pipeline: GitHub Actions / GitLab CI]
 ```
 
+## Data Ingestion
+
+- Data is fetched from MySQL using Python (pymysql).
+
+- Split data into train and test sets.
+
+## Data Transformation
+
+**Feature Engineering:**
+
+- age = 2025 - year
+
+- One-hot encode categorical features: company, name, fuel_type
+
+- Scale numerical features: age, kms_driven
+
+**Preprocessor object** is saved for later prediction: artifacts/preprocessor.pkl
+
+## Model Training & Evaluation
+
+Train a regression model (XGBoost / RandomForest) using the transformed dataset.
+
+- Evaluate metrics:
+
+- RMSE, MAE, R²
+
+- Save trained model: artifacts/model.pkl
+
+= Log metrics with MLflow.
+
+## Prediction Pipeline
+
+``predict_pipeline.py`` handles:
+
+- Input validation using Pydantic
+
+- Feature engineering (computing age)
+
+- Transformation using saved preprocessor
+
+- Prediction using saved model
+
+Example:
+```bash
+pipeline = PredictionPipeline(model_path="artifacts/model.pkl",
+                              preprocessor_path="artifacts/preprocessor.pkl")
+prediction = pipeline.predict(input_df)
+
+```
+
+## FastAPI Deployment
+
+**Endpoints:**
+
+- / → Homepage with prediction form
+
+- /predict → POST API for predictions
+
+- /company → GET all companies
+
+- /name/{company_name} → GET car models per company
+
+- Frontend Integration:
+
+- HTML/CSS/JS form
+
+- AJAX calls to API endpoints
+
+- Dynamic display of predicted price
+
+Example request payload:
+
+```bash
+{
+  "name": "Civic",
+  "company": "Honda",
+  "year": 2018,
+  "kms_driven": 45000,
+  "fuel_type": "Petrol"
+}
+```
