@@ -234,30 +234,57 @@ jobs:
 
 Car-Price-Predictor/
 │
+
 ├─ src/
+
 │   ├─ mlproject/
+
 │   │   ├─ components/
+
 │   │   │   ├─ data_ingestion.py
+
 │   │   │   ├─ data_transformation.py
+
 │   │   │   ├─ model_trainer.py
+
 │   │   ├─ pipelines/
+
 │   │   │   └─ prediction_pipeline.py
+
 │   │   ├─ utils.py
+
 │   │   ├─ logger.py
+
 │   │   └─ main.py
+
 │
+
 ├─ artifacts/
+
 │   ├─ raw_data.csv
+
 │   ├─ train.csv
+
 │   ├─ test.csv
+
 │   ├─ model.pkl
+
 │   └─ preprocessor.pkl
+
 │
+
 ├─ templates/
+
 │   └─ index.html
+
 ├─ static/
+
 │   └─ style.css
+
 ├─ requirements.txt
+
 ├─ Dockerfile
+
 └─ README.md
+
 
