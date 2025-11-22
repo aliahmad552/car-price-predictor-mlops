@@ -154,3 +154,45 @@ Example request payload:
   "fuel_type": "Petrol"
 }
 ```
+## MLflow & DagsHub Integration
+
+- Track experiments, metrics, and parameters with MLflow.
+
+- Example:
+```bash
+import mlflow
+mlflow.set_tracking_uri("https://dagshub.com/<username>/<repo>.mlflow")
+mlflow.log_param("model", "XGBRegressor")
+mlflow.log_metric("RMSE", rmse)
+mlflow.sklearn.log_model(best_model, "model")
+```
+**Benefits:**
+
+- Model versioning
+
+- Experiment comparison
+
+- Collaboration via DagsHub
+
+## Dockerization
+
+Dockerfile:
+
+```bash
+
+FROM python:3.10-slim
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+
+EXPOSE 8000
+CMD ["uvicorn", "src.mlproject.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+```
+**Commands**:
+```bash
+docker build -t car-price-predictor .
+docker run -d -p 8000:8000 car-price-predictor
+```
