@@ -3,6 +3,7 @@ from src.mlproject.exception import CustomException
 from src.mlproject.logger import logging
 from src.mlproject.utils import save_object, evaluate_model
 import os
+from dotenv import load_dotenv
 import mlflow
 from urllib.parse import urlparse
 from dataclasses import dataclass
@@ -14,6 +15,11 @@ from xgboost import XGBRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import numpy as np
 
+load_dotenv()  # Load .env file
+
+# Now environment variables are available
+username = os.getenv("MLFLOW_TRACKING_USERNAME")
+password = os.getenv("MLFLOW_TRACKING_PASSWORD")
 
 @dataclass
 class ModelTrainerConfig:
@@ -53,9 +59,6 @@ class ModelTrainer:
             print(best_model_score)
             print(best_model_name)
 
-            # Authentication
-            os.environ["MLFLOW_TRACKING_USERNAME"] = "aliahmad552"
-            os.environ["MLFLOW_TRACKING_PASSWORD"] = "738cd055a1ed8cfe2b2ff2eaddea249c2471b62a"
 
             # Correct DagsHub tracking URI
             mlflow.set_tracking_uri("https://dagshub.com/aliahmad552/car-price-predictor-mlops.mlflow")
@@ -66,7 +69,6 @@ class ModelTrainer:
                 predicted_qualities = best_model.predict(X_test)
                 rmse, mae, r2 = self.eval_metrics(y_test, predicted_qualities)
 
-                mlflow.log_param("best_model", best_model_name)
                 mlflow.log_metric("RMSE", rmse)
                 mlflow.log_metric("MAE", mae)
                 mlflow.log_metric("R2", r2)
