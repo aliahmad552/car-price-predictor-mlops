@@ -282,9 +282,7 @@ Car-Price-Predictor/
 │   └─ style.css
 
 ├─ requirements.txt
-
 ├─ Dockerfile
-
 └─ README.md
 
 
