@@ -196,3 +196,68 @@ CMD ["uvicorn", "src.mlproject.main:app", "--host", "0.0.0.0", "--port", "8000"]
 docker build -t car-price-predictor .
 docker run -d -p 8000:8000 car-price-predictor
 ```
+
+## CI/CD Pipeline
+
+- Automate build, test, and deployment using GitHub Actions or GitLab CI.
+
+**Sample GitHub Action workflow:**
+
+```bash
+
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: pytest
+      - name: Build Docker
+        run: docker build -t username/car-price-predictor .
+      - name: Push Docker
+        run: docker push username/car-price-predictor
+```
+
+### Project Structure
+
+Car-Price-Predictor/
+│
+├─ src/
+│   ├─ mlproject/
+│   │   ├─ components/
+│   │   │   ├─ data_ingestion.py
+│   │   │   ├─ data_transformation.py
+│   │   │   ├─ model_trainer.py
+│   │   ├─ pipelines/
+│   │   │   └─ prediction_pipeline.py
+│   │   ├─ utils.py
+│   │   ├─ logger.py
+│   │   └─ main.py
+│
+├─ artifacts/
+│   ├─ raw_data.csv
+│   ├─ train.csv
+│   ├─ test.csv
+│   ├─ model.pkl
+│   └─ preprocessor.pkl
+│
+├─ templates/
+│   └─ index.html
+├─ static/
+│   └─ style.css
+├─ requirements.txt
+├─ Dockerfile
+└─ README.md
+
