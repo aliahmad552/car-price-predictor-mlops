@@ -285,4 +285,12 @@ Car-Price-Predictor/
 ├─ Dockerfile
 └─ README.md
 
+## References
 
+- FastAPI Docs
+
+- MLflow Docs
+
+- DagsHub Docs
+
+- Docker Docs
