@@ -33,7 +33,7 @@ def read_sql_data():
 
         logging.info(f"Connection Established: {mydb}")
 
-        df = pd.read_sql_query("SELECT * FROM cleared_car",mydb)
+        df = pd.read_sql_query("SELECT * FROM cleaned_data",mydb)
         print(df.head())
 
         return df
