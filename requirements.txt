@@ -12,5 +12,6 @@ mlflow==2.9.2
 dagshub
 dill
 fastapi
+dvc
 uvicorn
-# -e .
+-e .
